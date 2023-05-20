@@ -1,9 +1,8 @@
 {
     "questions": [
         {
-            "number": 1,
-            "question": "Lorem",
-            "choices": [
+            "text": "Lorem",
+            "choice": [
                 "answer1",
                 "answer2",
                 "answer3",
@@ -12,8 +11,7 @@
             "correct": 4
         },
         {
-            "number": 2,
-            "question": "ipsum",
+            "text": "ipsum",
             "choices": [
                 "answer1",
                 "answer2",
@@ -23,8 +21,7 @@
             "correct": 1
         },
         {
-            "number": 3,
-            "question": "dolor",
+            "text": "dolor",
             "choices": [
                 "answer1",
                 "answer2",
@@ -34,8 +31,7 @@
             "correct": 2
         },
         {
-            "number": 4,
-            "question": "sit",
+            "text": "sit",
             "choices": [
                 "answer1",
                 "answer2",
@@ -45,8 +41,7 @@
             "correct": 2
         },
         {
-            "number": 5,
-            "question": "amet",
+            "text": "amet",
             "choices": [
                 "answer1",
                 "answer2",

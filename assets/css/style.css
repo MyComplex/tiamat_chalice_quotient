@@ -1,6 +1,6 @@
-#showhide {
+/* #tts {
     display: none;
-}
+} */
 
 * {
     box-sizing: border-box;
@@ -52,6 +52,19 @@ h1 {
     background-color: #eaeaea;
     border-radius: 20px;
     width: 60%;
+}
+
+#choices {
+    display: none;
+    flex-direction: column;
+}
+
+.aitem {
+    display: flex;
+}
+
+.answers {
+    margin: 0px;
 }
 
 p {
