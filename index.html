@@ -13,21 +13,23 @@
 <body>
     <main>
         <header>
-            <h1>Coding Knowledge Quiz</h1>
+            <h1 id="showhide">Coding Knowledge Quiz</h1>
         </header>
-        <section>
-            <p>This quiz consists of 381 multiple choice questions and is timed. You will lose 2.39 seconds each time you answer incorrectly. You have 298 seconds to complete the quiz.<br/>
+        <section class="mainsec">
+            <p id="question">This quiz consists of 5 multiple choice questions and is timed. You will lose 2.39 seconds each time you answer incorrectly. You have 298 seconds to complete the quiz.<br/>
                 Press the START button to begin.<br/>
                 Good luck!</p>
-            <button>START</button>
+            <button id="quiz_start">START</button>
         </section>
         <footer>
-            <section>
-                <strong>Timer</strong>
+            <section class="footsec">
+                <strong id="score">Score</strong>
+                <strong id="countdown">Timer</strong>
             </section>
             <img src="./assets/images/clock.png"/>
         </footer>
     </main>
+    <script src="./assets/scripts/script.js"></script>
 </body>
 
 </html>
