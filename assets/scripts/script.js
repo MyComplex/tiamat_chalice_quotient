@@ -12,6 +12,12 @@ var currentQuote = 0;
 var questions = {};
 var quotes = [];
 var currentPage = 0;
+var selections = [];
+var c1 = document.getElementById("c1");
+var c2 = document.getElementById("c2");
+var c3 = document.getElementById("c3");
+var c4 = document.getElementById("c4");
+
 
 /* FETCH QUESTIONS FROM JSON FILE */
 fetch("./assets/json/data.json")
@@ -27,12 +33,16 @@ fetch("./assets/json/data.json")
 
 /* INIT THE QUIZ */
 begin.addEventListener("click", function () {
-    question.textContent = questions[0].questionText;
+    question.textContent = questions[currentQuestion].questionText;
+    c1.textContent = questions[currentQuestion].choices[0];
+    c2.textContent = questions[currentQuestion].choices[1];
+    c3.textContent = questions[currentQuestion].choices[2];
+    c4.textContent = questions[currentQuestion].choices[3];
     choices.style.display = "flex";
     begin.style.display = "none";
     next.style.display = "block";
     title.textContent = "Time left: " + timer;
-    quote.textContent = quotes[0];
+    quote.textContent = quotes[currentQuote];
     quizStarted = true;
     currentPage = 1;
 
@@ -63,6 +73,10 @@ begin.addEventListener("click", function () {
 next.addEventListener("click", function () {
     currentQuestion = (currentQuestion + 1) % questions.length;
     question.textContent = questions[currentQuestion].questionText;
+    c1.textContent = questions[currentQuestion].choices[0];
+    c2.textContent = questions[currentQuestion].choices[1];
+    c3.textContent = questions[currentQuestion].choices[2];
+    c4.textContent = questions[currentQuestion].choices[3];
     currentQuote = (currentQuote + 1) % quotes.length;
     quote.textContent = quotes[currentQuote];
 currentPage++;
