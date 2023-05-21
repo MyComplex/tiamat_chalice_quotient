@@ -1,91 +1,40 @@
 /* VARIABLES */
-// change title, to timer, then score
 var title = document.getElementById("tts");
-// start the quiz
 var begin = document.getElementById("begin");
-// next question
 var next = document.getElementById("next");
-// insert the question
 var question = document.getElementById("question");
-// insert the guesses
 var choices = document.getElementById("choices");
-// state of quiz
+var quote = document.getElementById("quote");
 var quizStarted = false;
-// quiz timer
 var timer = 5;
-//current question
 var currentQuestion = 0;
-
-// var jsonData = {};
+var currentQuote = 0;
 var questions = {};
-var encouragement = {};
+var quotes = [];
+var currentPage = 0;
 
 /* FETCH QUESTIONS FROM JSON FILE */
 fetch("./assets/json/data.json")
-.then(function(response){
-    return response.json();
-})
-.then(function(data){
-    console.log(data);
-    // jsonData = data;
-    questions = data.questions;
-    encouragement = data.encouragement;
-});
-
-/*
-for (var property in questions){
-console.log(property);
-console.log(questions[property]);
-}
-*/
-
-/*
-// question pool
-var questions = [
-    {
-        text: "What is the land speed velocity of an unladen swallow",
-        choices: [
-            "100 KPH",
-            "200 KPH",
-            "50 MPH",
-            "African or European?"
-        ],
-        right: 4
-    },
-    {
-        text: "How much wood can a woodchuck chuck if a woodchuck could chuck wood?",
-        choices: [
-            "100 kg",
-            "200 kg",
-            "50 pounds",
-            "plbbbttt?"
-        ],
-        right: 4
-    }
-];
-*/
-
-
-/* var ideas */
-// var answer = do
-// var question = "";
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        // jsonData = data;
+        questions = data.questions;
+        quotes = data.quotes;
+    });
 
 /* INIT THE QUIZ */
 begin.addEventListener("click", function () {
-    
-    // var qtext = 1;
-
-    // question.textContent = questions[qtext].text;
     question.textContent = questions[0].questionText;
-    // for (x=0;x<choices.length;x++) {
-
-    // }
     choices.style.display = "flex";
     begin.style.display = "none";
     next.style.display = "block";
-    // begin.textContent = "NEXT";
     title.textContent = "Time left: " + timer;
+    quote.textContent = quotes[0];
     quizStarted = true;
+    currentPage = 1;
 
     showCountdownTimer();
 
@@ -111,9 +60,13 @@ begin.addEventListener("click", function () {
 });
 
 /* CYCLE THROUGH QUESTIONS */
-next.addEventListener("click", function(){
-currentQuestion = (currentQuestion + 1) % questions.length;
-question.textContent = questions[currentQuestion].questionText;
+next.addEventListener("click", function () {
+    currentQuestion = (currentQuestion + 1) % questions.length;
+    question.textContent = questions[currentQuestion].questionText;
+    currentQuote = (currentQuote + 1) % quotes.length;
+    quote.textContent = quotes[currentQuote];
+currentPage++;
+console.log(currentPage);
 })
 
 /*  FUNCTIONS */
@@ -135,7 +88,7 @@ function showCountdownTimer() {
 };
 
 function next() {
-    if (x >= questions.length - 1){
+    if (x >= questions.length - 1) {
         return;
     }
     x++;

@@ -1,23 +1,10 @@
 {
-    "encouragement": [
-        {
-            "right":[
-            "quote1",
-                "quote2",
-                "quote3",
-                "quote4"
-            ]
-            
-        },
-        {
-            "wrong":[
-            "quote1",
-                "quote2",
-                "quote3",
-                "quote4"
-            ]
-            
-        }
+    "quotes": [
+        "quote1",
+        "quote2",
+        "quote3",
+        "quote4",
+        "quote5"
     ],
     "questions": [
         {
