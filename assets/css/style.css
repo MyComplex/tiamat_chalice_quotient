@@ -57,26 +57,38 @@ h1 {
 #choices {
     display: none;
     flex-direction: column;
+    list-style: none;
 }
 
+/*
 .aitem {
     display: flex;
 }
+*/
 
 .answers {
     margin: 0px;
 }
 
-p {
+legend {
     margin: 10px;
 }
 
 button {
-    background-color: #d74a49;
+    /* background-color: #d74a49; */
     border-radius: 15px;
     width: 100px;
     height: 50px;
     margin: 10px;
+}
+
+#begin{
+    background-color: green;
+}
+
+#next{
+    background-color: mediumslateblue;
+    display: none;
 }
 
 footer {
