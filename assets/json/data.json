@@ -1,0 +1,74 @@
+{
+    "encouragement": [
+        {
+            "right":[
+            "quote1",
+                "quote2",
+                "quote3",
+                "quote4"
+            ]
+            
+        },
+        {
+            "wrong":[
+            "quote1",
+                "quote2",
+                "quote3",
+                "quote4"
+            ]
+            
+        }
+    ],
+    "questions": [
+        {
+            "questionText": "What determines the number of parameters passed to a function?",
+            "choices": [
+                "The number of pairs of braces inside the function's braces.",
+                "Whether or not the function contains a loop.",
+                "The function contains a return statement.",
+                "One for each argument."
+            ],
+            "correctChoice": 4
+        },
+        {
+            "questionText": "Which is the correct way to define an array?",
+            "choices": [
+                "var array = ['item1','item2','item3']",
+                "const array = for (i=0;i<array.length;i++){'item1','item2','item3'}",
+                "var array = [1=('item1')2=('item2'')3=('item3')]",
+                "array='item1','item2','item3'"
+            ],
+            "correctChoice": 1
+        },
+        {
+            "questionText": "True or False: Java is another name for JavaScript.",
+            "choices": [
+                "True",
+                "False",
+                "All of the above.",
+                "None of the above."
+            ],
+            "correctChoice": 2
+        },
+        {
+            "questionText": "Which is the correct 'OR' logical operator?",
+            "choices": [
+                "&&",
+                "||",
+                "!",
+                "i++"
+            ],
+            "correctChoice": 2
+        },
+        {
+            "questionText": "How do you call function?",
+            "choices": [
+                "Hey function! Come over here!",
+                "function nameOfFunction('click',y);",
+                "nameOfFunction();",
+                "while (i<nameOfFunction[0].length){return nameOfFunction()};"
+            ],
+            "correctChoice": 3
+        }
+    ]
+}

@@ -16,22 +16,28 @@ var timer = 5;
 //current question
 var currentQuestion = 0;
 
+// var jsonData = {};
 var questions = {};
+var encouragement = {};
 
 /* FETCH QUESTIONS FROM JSON FILE */
-fetch("./assets/json/questions.json")
+fetch("./assets/json/data.json")
 .then(function(response){
     return response.json();
 })
 .then(function(data){
     console.log(data);
-    questions = data;
+    // jsonData = data;
+    questions = data.questions;
+    encouragement = data.encouragement;
 });
 
+/*
 for (var property in questions){
 console.log(property);
 console.log(questions[property]);
 }
+*/
 
 /*
 // question pool
@@ -70,7 +76,7 @@ begin.addEventListener("click", function () {
     // var qtext = 1;
 
     // question.textContent = questions[qtext].text;
-    question.textContent = questions.questions[0].text;
+    question.textContent = questions[0].questionText;
     // for (x=0;x<choices.length;x++) {
 
     // }
@@ -100,14 +106,14 @@ begin.addEventListener("click", function () {
 
     }, 1000);
 
-    qselecter();
+    // qselecter();
 
 });
 
 /* CYCLE THROUGH QUESTIONS */
 next.addEventListener("click", function(){
-currentQuestion = (currentQuestion + 1) % questions.questions.length;
-question.textContent = questions.questions[currentQuestion].text;
+currentQuestion = (currentQuestion + 1) % questions.length;
+question.textContent = questions[currentQuestion].questionText;
 })
 
 /*  FUNCTIONS */
