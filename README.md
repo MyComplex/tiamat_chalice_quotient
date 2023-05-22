@@ -7,7 +7,7 @@
 - [Copyright](#copyright)
 
 ## Scope of Work
-Build a timeed quiz that tests your JavaScript knowledge, subtracts time for a wrong answer, and records your score in a leaderboard.
+Build a timeed quiz that tests your JavaScript knowledge, applies a time penalty for a wrong answer, and records your score in a leaderboard.
 
 ## Sample
 ![sample](./sample.gif)
