@@ -1,14 +1,19 @@
 {
-    "questions": [
+    "encouragement": [
         {
-            "text": "Lorem",
-            "choice": [
+            "author": "Lorem",
+            "quotes": [
                 "answer1",
                 "answer2",
                 "answer3",
                 "answer4"
             ],
-            "correct": 4
+            "right":[
+                ""
+            ],
+            "wrong":[
+                ""
+            ]
         },
         {
             "text": "ipsum",
