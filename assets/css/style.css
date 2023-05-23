@@ -54,7 +54,28 @@ h1 {
     width: 60%;
 }
 
-p {
+#choices {
+    display: none;
+}
+
+li {
+    display: flex;
+    padding: 10px;
+}
+
+label {
+    font-size: 1.17em;
+    padding-left: 2.5ch;
+    display: block;
+}
+
+.answers {
+    margin: 0px;
+}
+
+legend {
+    font-size: 1.33em;
+    font-weight: bold;
     margin: 10px;
 }
 
