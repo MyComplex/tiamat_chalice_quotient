@@ -16,30 +16,33 @@
             <h1 id="tts">JavaScript Quiz</h1>
         </header>
         <form class="mainsec" onsubmit="return false">
-            <legend id="question">This quiz consists of 5 multiple choice questions and is timed. You will lose 2.39 seconds
-                each time you answer incorrectly. You have 298 seconds to complete the quiz.<br />
+            <legend id="question">This quiz consists of 5 multiple choice questions and is timed. You will lose 5
+                seconds
+                each time you answer incorrectly. You have 30 seconds to complete the quiz.<br />
                 Press the START button to begin.<br />
                 Good luck!</legend>
             <ul id="choices">
-                <li class="aitem"><input type="radio" id="o1" name="choiceOptions" value="1"/>
-                    <label id="c1" for="o1">Answer 1</label>
+                <li>
+                    <input type="radio" id="o1" name="choiceOptions" value="1" />
+                    <label id="l1" for="o1"></label>
                 </li>
-                <li class="aitem"><input type="radio" id="o2" name="choiceOptions" value="2"/>
-                    <label id="c2" for="o2">Answer 2</label>
+                <li>
+                    <input type="radio" id="o2" name="choiceOptions" value="2" />
+                    <label id="l2" for="o2"></label>
                 </li>
-                <li class="aitem"><input type="radio" id="o3" name="choiceOptions" value="3"/>
-                    <label id="c3" for="o3">Answer 3</label>
+                <li>
+                    <input type="radio" id="o3" name="choiceOptions" value="3" />
+                    <label id="l3" for="o3"></label>
                 </li>
-                <li class="aitem"><input type="radio" id="o4" name="choiceOptions" value="4"/>
-                    <label id="c4" for="o4">Answer 4</label>
+                <li>
+                    <input type="radio" id="o4" name="choiceOptions" value="4" />
+                    <label id="l4" for="o4"></label>
                 </li>
             </ul>
-            <button id="begin">BEGIN</button>
-            <button id="next">NEXT</button>
+            <button id="btn">START</button>
         </form>
         <footer>
             <section class="footsec">
-                <!-- <strong id="score">Score</strong> -->
                 <strong id="quote"></strong>
             </section>
             <img src="./assets/images/clock.png" />

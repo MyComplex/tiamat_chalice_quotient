@@ -1,7 +1,3 @@
-/* #tts {
-    display: none;
-} */
-
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -56,37 +52,41 @@ h1 {
 
 #choices {
     display: none;
-    flex-direction: column;
-    list-style: none;
 }
 
-/*
-.aitem {
+li {
     display: flex;
+    padding: 10px;
 }
-*/
+
+label {
+    font-size: 1.17em;
+    padding-left: 2.5ch;
+    display: block;
+}
 
 .answers {
     margin: 0px;
 }
 
 legend {
+    font-size: 1.33em;
+    font-weight: bold;
     margin: 10px;
 }
 
 button {
-    /* background-color: #d74a49; */
     border-radius: 15px;
     width: 100px;
     height: 50px;
     margin: 10px;
 }
 
-#begin{
+#btn {
     background-color: green;
 }
 
-#next{
+#next {
     background-color: mediumslateblue;
     display: none;
 }
@@ -115,7 +115,9 @@ footer {
 }
 
 strong {
+    margin-left:-50px;
     font-weight: bold;
+    width: 75%;
 }
 
 img {
