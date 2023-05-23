@@ -17,7 +17,7 @@ let questions = {},
     yourScore = 0,
     highScore = 0,
     choicesLabels = ["l1", "l2", "l3", "l4"],
-    choicesRadios = ["o1","o2","o3","o4"];
+    choicesRadios = ["o1", "o2", "o3", "o4"];
 
 
 /* FETCH QUESTIONS FROM JSON FILE */
@@ -66,7 +66,7 @@ button.addEventListener("click", function () {
     }
     /* CYCLE THROUGH QUESTIONS */
     else if (currentPage < 5) {
-        
+
         currentQuestion = (currentQuestion + 1) % questions.length;
         question.textContent = questions[currentQuestion].questionText;
         questionsExchange();
@@ -75,7 +75,7 @@ button.addEventListener("click", function () {
         currentPage++;
         console.log(currentPage);
     }
-    else{
+    else {
         console.log("End of quiz!");
         clearInterval(countdownInterval);
     }
@@ -100,9 +100,8 @@ function questionsExchange() {
     }
 };
 
-function clearSelected(GroupName)
-{
-  var ele = document.getElementsByName(GroupName);
-	for(var i=0;i<ele.length;i++)
-    ele[i].checked = false;
-}
+function clearSelected(GroupName) {
+    var ele = document.getElementsByName(GroupName);
+    for (var i = 0; i < ele.length; i++)
+        ele[i].checked = false;
+};
