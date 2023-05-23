@@ -7,39 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>JavaScript Knowledge Quiz</title>
+    <title>Test your js strength</title>
 </head>
 
 <body>
     <main>
         <header>
-            <h1 id="tts">JavaScript Knowledge Quiz</h1>
+            <h1 id="tts">JavaScript Quiz</h1>
         </header>
-        <section class="mainsec">
-            <p id="question">This quiz consists of 5 multiple choice questions and is timed. You will lose 2.39 seconds
-                each time you answer incorrectly. You have 298 seconds to complete the quiz.<br />
+        <form class="mainsec" onsubmit="return false">
+            <legend id="question">This quiz consists of 5 multiple choice questions and is timed. You will lose 5
+                seconds
+                each time you answer incorrectly. You have 30 seconds to complete the quiz.<br />
                 Press the START button to begin.<br />
-                Good luck!</p>
+                Good luck!</legend>
             <ul id="choices">
-                <li class="aitem"><input type="radio" id="r1" />
-                    <p id="a1">Answer 1</p>
+                <li>
+                    <input type="radio" id="o1" name="choiceOptions" value="1" />
+                    <label id="l1" for="o1"></label>
                 </li>
-                <li class="aitem"><input type="radio" id="r2" />
-                    <p id="a2">Answer 1</p>
+                <li>
+                    <input type="radio" id="o2" name="choiceOptions" value="2" />
+                    <label id="l2" for="o2"></label>
                 </li>
-                <li class="aitem"><input type="radio" id="r3" />
-                    <p id="a3">Answer 1</p>
+                <li>
+                    <input type="radio" id="o3" name="choiceOptions" value="3" />
+                    <label id="l3" for="o3"></label>
                 </li>
-                <li class="aitem"><input type="radio" id="r4" />
-                    <p id="a4">Answer 1</p>
+                <li>
+                    <input type="radio" id="o4" name="choiceOptions" value="4" />
+                    <label id="l4" for="o4"></label>
                 </li>
             </ul>
-            <button id="button">START</button>
-        </section>
+            <button id="btn">START</button>
+        </form>
         <footer>
             <section class="footsec">
-                <!-- <strong id="score">Score</strong> -->
-                <strong id="encouragement">Encouraging Statements</strong>
+                <strong id="quote"></strong>
             </section>
             <img src="./assets/images/clock.png" />
         </footer>
