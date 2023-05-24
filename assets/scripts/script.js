@@ -18,14 +18,12 @@ let title = document.getElementById("tts"),
 fetch("./assets/json/data.json")
     .then(function (response) {
         return response.json();
-    }
-    )
+    })
     .then(function (data) {
         questions = data.questions;
         quotes = data.quotes;
         externalData = data;
-    }
-    );
+    });
 
 /* INIT THE QUIZ */
 button.addEventListener("click", function () {
@@ -68,9 +66,7 @@ button.addEventListener("click", function () {
     }
 
     console.log("The current page number is: " + currentPage);
-}
-
-);
+});
 
 /*  FUNCTIONS */
 function showCountdownTimer() {
