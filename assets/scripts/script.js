@@ -11,7 +11,8 @@ let title = document.getElementById("tts"),
     timer = 30,
     yourScore = 0,
     highScore = 0,
-    choicesRadios = ["o1", "o2", "o3", "o4"];
+    choicesRadios = ["o1", "o2", "o3", "o4"],
+    countdownInterval;
 
 
 /* FETCH QUESTIONS FROM JSON FILE */
@@ -26,7 +27,8 @@ fetch("./assets/json/data.json")
     });
 
 /* INIT THE QUIZ */
-button.addEventListener("click", function () {
+button.addEventListener("click", function (event) {
+    console.log(event.target);
     let choices = document.getElementById("choices"),
         quote = document.getElementById("quote"),
         quizStarted = false,
@@ -49,19 +51,20 @@ button.addEventListener("click", function () {
     }
 
     /* CYCLE THROUGH QUESTIONS */
-    else if (currentPage < 6) {
+    else if (currentPage <= 4) {
         questionsExchange();
         console.log("The first Else If");
     }
 
-    else if (currentPage == 6) {
+    else if (currentPage == 5) {
         button.textContent = "SUBMIT";
         questionsExchange();
         console.log("The second Else If");
     }
 
-    else {
+    else if (currentPage >= 6) {
         clearInterval(countdownInterval);
+        console.log(countdownInterval);
         console.log("End of quiz!");
     }
 
@@ -71,6 +74,10 @@ button.addEventListener("click", function () {
 /*  FUNCTIONS */
 function showCountdownTimer() {
     title.textContent = "You have " + timer + " seconds left.";
+    if (timer <= 0 || currentPage >= 7) {
+        // title.textContent = "Quiz over.";
+        return;
+    }
 };
 
 function questionsExchange() {
@@ -90,6 +97,23 @@ function clearSelected() {
     let radioGroupName = document.getElementsByName("choiceOptions")
     for (let i = 0; i < radioGroupName.length; i++)
         radioGroupName[i].checked = false;
+};
+
+function getSelectedRadio() {
+    var radios = document.getElementsByName("choiceOptions");
+    var selected = Array.from(radios).find(radio => radio.checked);
+    selectedAnswers.push(selected.value);
+    console.log(selectedAnswers);
+};
+
+function tallyScore() {
+    let correctAnswers = ['4', '1', '2', '2', '3'];
+    for (let x = 0; x < questions.length; x++) {
+        if (correctAnswers[x] == questions[x].correctChoice) {
+            yourScore++;
+        }
+        return;
+    }
 };
 
 /* CHECKS */
