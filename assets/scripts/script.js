@@ -116,6 +116,15 @@ function tallyScore() {
     }
 };
 
+function countDown(){
+    timer--;
+    title.textContent=countDown;
+    if(timer === 0){
+        clearInterval(startTimer)
+}
+
+let startTimer =setInterval(countDown, 1000)
+
 /* CHECKS */
 this.onload = (event) => {
     console.log("The current page number is: " + currentPage);
