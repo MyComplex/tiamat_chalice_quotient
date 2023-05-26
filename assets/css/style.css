@@ -84,7 +84,12 @@ button {
 }
 
 #btn {
-    background-color: limegreen;
+    background-color: green;
+}
+
+#next {
+    background-color: mediumslateblue;
+    display: none;
 }
 
 footer {
