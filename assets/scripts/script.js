@@ -3,7 +3,6 @@ let title = document.getElementById("tts"),
     button = document.getElementById("btn"),
     questions = {},
     quotes = [],
-    externalData = {},
     currentQuestion = 0,
     currentQuote = 0,
     currentPage = 1,
@@ -12,33 +11,33 @@ let title = document.getElementById("tts"),
     yourScore = 0,
     highScore = 0,
     choicesRadios = ["o1", "o2", "o3", "o4"],
-    countdownInterval;
+    // countdownInterval;
 
 
-/* FETCH QUESTIONS FROM JSON FILE */
-fetch("./assets/json/data.json")
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        questions = data.questions;
-        quotes = data.quotes;
-        externalData = data;
-    });
+    /* FETCH QUESTIONS FROM JSON FILE */
+    fetch("./assets/json/data.json")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            questions = data.questions;
+            quotes = data.quotes;
+        });
 
 /* INIT THE QUIZ */
 button.addEventListener("click", function (event) {
     console.log(event.target);
-    let choices = document.getElementById("choices"),
-        quote = document.getElementById("quote"),
-        quizStarted = false,
-        countdownInterval = setInterval(function () {
-            if (!quizStarted) {
-                return;
-            }
-            timer--;
-            showCountdownTimer();
-        }, 1000);
+    let choices = document.getElementById("choices");
+    countDown();
+    // quote = document.getElementById("quote"),
+    // quizStarted = false,
+    // countdownInterval = setInterval(function () {
+    //     if (!quizStarted) {
+    //         return;
+    //     }
+    //     timer--;
+    //     showCountdownTimer();
+    // }, 1000);
 
     if (button.textContent == "START") {
         questionsExchange();
@@ -46,7 +45,7 @@ button.addEventListener("click", function (event) {
         button.style["background-color"] = "purple";
         button.textContent = "NEXT";
         quizStarted = true;
-        showCountdownTimer();
+        // showCountdownTimer();
         console.log("The If");
     }
 
@@ -72,14 +71,6 @@ button.addEventListener("click", function (event) {
 });
 
 /*  FUNCTIONS */
-function showCountdownTimer() {
-    title.textContent = "You have " + timer + " seconds left.";
-    if (timer <= 0 || currentPage >= 7) {
-        // title.textContent = "Quiz over.";
-        return;
-    }
-};
-
 function questionsExchange() {
     let choicesLabels = ["l1", "l2", "l3", "l4"],
         question = document.getElementById("question");
@@ -116,14 +107,25 @@ function tallyScore() {
     }
 };
 
-function countDown(){
+function countDown() {
     timer--;
-    title.textContent=countDown;
-    if(timer === 0){
-        clearInterval(startTimer)
-}
+    title.textContent = timer;
 
-let startTimer =setInterval(countDown, 1000)
+    if (timer === 0) {
+        clearInterval(startTimer);
+    }
+};
+
+let startTimer = setInterval(countDown, 1000)
+
+function showCountdownTimer() {
+    timer--;
+    title.textContent = "You have " + timer + " seconds left.";
+    if (timer === 0 || currentPage >= 7) {
+        // title.textContent = "Quiz over.";
+        return;
+    }
+};
 
 /* CHECKS */
 this.onload = (event) => {
