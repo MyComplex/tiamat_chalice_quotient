@@ -9,11 +9,11 @@ let title = document.getElementById("tts"),
     currentQuote = 0,
     currentPage = 1,
     selectedAnswers = [],
-    timer = 30,
+    timer = 5,
     yourScore = 0,
     highScore = 0,
     choicesRadios = ["o1", "o2", "o3", "o4"],
-    quizStarted = true;
+    quizStarted = false;
 
 
 /* FETCH QUESTIONS FROM JSON FILE */
@@ -28,21 +28,23 @@ fetch("./assets/json/data.json")
 
 /* INIT THE QUIZ */
 button.addEventListener("click", function () {
-    let choices = document.getElementById("choices"),
-    quizStarted = false,
-    countdownInterval = setInterval(function () {
-        timer--;
-        showCountdownTimer();
+    var choices = document.getElementById("choices");
+    quizStarted = true;
+    showCountdownTimer();
+    var countdownInterval = setInterval(function () {
         if (!quizStarted) {
             return;
         }
-        if (timer <=0){
+        timer--;
+        if (timer <= 0) {
             clearInterval(countdownInterval);
-            title.textContent = "Time's up!";
+            showTimesUp();
+            quizStarted = false;
         }
+        showCountdownTimer();
     }, 1000);
     if (button.textContent == "START") {
-        showCountdownTimer();
+        // showCountdownTimer();
         questionsExchange();
         choices.style.display = "block";
         button.style["background-color"] = "purple";
@@ -53,20 +55,24 @@ button.addEventListener("click", function () {
 
     /* CYCLE THROUGH QUESTIONS */
     else if (currentPage < 6) {
+        getSelectedRadio();
+        clearSelected();
         questionsExchange();
         console.log("The first Else If");
     }
 
     else if (currentPage == 6) {
         button.textContent = "SUBMIT";
+        getSelectedRadio();
+        clearSelected();
         questionsExchange();
         console.log("The second Else If");
     }
 
-    else {
-        clearInterval(countdownInterval);
-        console.log("End of quiz!");
-    }
+    // else {
+    //     clearInterval(countdownInterval);
+    //     console.log("End of quiz!");
+    // }
 
     console.log("The current page number is: " + currentPage);
 });
@@ -75,6 +81,10 @@ button.addEventListener("click", function () {
 function showCountdownTimer() {
     title.textContent = "You have " + timer + " seconds left.";
 };
+
+function showTimesUp() {
+    title.textContent = "Time's up!";
+}
 
 function questionsExchange() {
     let choicesLabels = ["l1", "l2", "l3", "l4"],
