@@ -12,39 +12,42 @@ let title = document.getElementById("tts"),
     timer = 30,
     yourScore = 0,
     highScore = 0,
-    choicesRadios = ["o1", "o2", "o3", "o4"];
+    choicesRadios = ["o1", "o2", "o3", "o4"],
+    quizStarted = true;
 
 
-    /* FETCH QUESTIONS FROM JSON FILE */
-    fetch("./assets/json/data.json")
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            questions = data.questions;
-            quotes = data.quotes;
-        });
+/* FETCH QUESTIONS FROM JSON FILE */
+fetch("./assets/json/data.json")
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        questions = data.questions;
+        quotes = data.quotes;
+    });
 
 /* INIT THE QUIZ */
 button.addEventListener("click", function () {
     let choices = document.getElementById("choices"),
-        quote = document.getElementById("quote"),
-        quizStarted = false,
-        countdownInterval = setInterval(function () {
-            if (!quizStarted) {
-                return;
-            }
-            timer--;
-            showCountdownTimer();
-        }, 1000);
-
+    quizStarted = false,
+    countdownInterval = setInterval(function () {
+        timer--;
+        showCountdownTimer();
+        if (!quizStarted) {
+            return;
+        }
+        if (timer <=0){
+            clearInterval(countdownInterval);
+            title.textContent = "Time's up!";
+        }
+    }, 1000);
     if (button.textContent == "START") {
+        showCountdownTimer();
         questionsExchange();
         choices.style.display = "block";
         button.style["background-color"] = "purple";
         button.textContent = "NEXT";
         quizStarted = true;
-        // showCountdownTimer();
         console.log("The If");
     }
 
@@ -91,6 +94,43 @@ function clearSelected() {
     for (let i = 0; i < radioGroupName.length; i++)
         radioGroupName[i].checked = false;
 };
+
+function getSelectedRadio() {
+    var radios = document.getElementsByName("choiceOptions");
+    var selected = Array.from(radios).find(radio => radio.checked);
+    selectedAnswers.push(selected.value);
+    console.log(selectedAnswers);
+};
+
+function tallyScore() {
+    let correctAnswers = ['4', '1', '2', '2', '3'];
+    for (let x = 0; x < questions.length; x++) {
+        if (correctAnswers[x] == questions[x].correctChoice) {
+            yourScore++;
+        }
+        return;
+    }
+};
+
+// function countDown() {
+//     timer--;
+//     title.textContent = timer;
+
+//     if (timer === 0) {
+//         clearInterval(startTimer);
+//     }
+// };
+
+// let startTimer = setInterval(countDown, 1000)
+
+// function displayCountdownTimer() {
+//     timer--;
+//     title.textContent = "You have " + timer + " seconds left.";
+//     if (timer === 0 || currentPage >= 7) {
+//         title.textContent = "Quiz over.";
+//         return;
+//     }
+// };
 
 /* CHECKS */
 this.onload = (event) => {
