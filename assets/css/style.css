@@ -22,7 +22,7 @@ main {
     border-radius: 20px;
     background-color: #bbc5c7;
     height: 95vh;
-    width: 98vw;
+    width: 95vw;
 }
 
 header {
@@ -31,7 +31,7 @@ header {
     justify-content: center;
     align-items: center;
     background-color: #183e4b;
-    height: 100px;
+    height: 80px;
     width: 100%;
     border-radius: 15px 15px 0px 0px;
 }
@@ -40,7 +40,7 @@ h1 {
     color: white;
 }
 
-.mainsec {
+form {
     margin: 20px;
     padding: 10px;
     display: flex;
@@ -51,45 +51,47 @@ h1 {
     width: 60%;
 }
 
-#choices {
-    display: none;
-}
-
-li {
-    display: flex;
-    padding: 10px;
-}
-
-label {
-    font-size: 1.17em;
-    padding-left: 2.5ch;
-    display: block;
-}
-
-.answers {
-    margin: 0px;
-}
-
 legend {
     font-size: 1.33em;
     font-weight: bold;
     margin: 10px;
 }
 
-button {
-    border-radius: 15px;
-    width: 100px;
-    height: 50px;
-    margin: 10px;
-}
-
-#btn {
-    background-color: green;
-}
-
-#next {
-    background-color: mediumslateblue;
+#options {
     display: none;
+    flex-wrap: wrap;
+}
+
+button {
+    border-radius: 10px;
+    min-height: 40px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.selections {
+    background-color: dodgerblue;
+    color: white;
+}
+
+#submit {
+    display: flex;
+    flex-direction: column;
+}
+
+#initials {
+    display: none;
+}
+
+#start {
+    background-color: limegreen;
+    color: black;
+    min-width: 80px;
+    max-width: 100px;
+}
+
+label {
+    margin: 10px;
 }
 
 footer {
@@ -100,11 +102,11 @@ footer {
     bottom: 0px;
     border-radius: 0px 0px 15px 15px;
     background-color: #78444a;
-    height: 100px;
+    height: 80px;
     width: 100%;
 }
 
-.footsec {
+#footrsec {
     flex-grow: 10;
     margin: 20px;
     padding: 10px;
@@ -116,7 +118,7 @@ footer {
 }
 
 strong {
-    margin-left:-50px;
+    margin-left: -50px;
     font-weight: bold;
     width: 75%;
 }
