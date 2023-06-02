@@ -124,7 +124,7 @@ var btnlbl = document.getElementById("strtlbl")
 /* CYCLE QUESTIONS */
 function showQuestionText() {
     for (let i = 0; i < buttons.length; i++) {
-        quote.textContent = quotes[currentQuestion];
+        quote.textContent = quotes[randomNumber()];
         if (currentQuestion == 5) {
             options.style.display = "none";
             yourScore = timer;
@@ -144,4 +144,9 @@ function showQuestionText() {
     }
     currentQuestion += 1;
 };
-quote.textContent = quotes[13];
+quote.textContent = quotes[randomNumber()];
+
+
+function randomNumber() {
+    return Math.floor(Math.random() * 15);
+};
