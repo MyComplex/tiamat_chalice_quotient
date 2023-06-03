@@ -72,6 +72,7 @@ quizQuestions = [
 
 /* GLOBAL VARIABLES */
 let title = document.getElementById("title"),
+    timerDisplay = document.getElementById("timer"),
     question = document.getElementById("question"),
     options = document.getElementById("options"),
     button = document.getElementById("start"),
@@ -82,22 +83,19 @@ let title = document.getElementById("title"),
 /* INIT THE QUIZ */
 button.addEventListener("click", function (event) {
     event.preventDefault();
-    title.textContent = "You have 30 seconds left.";
+    timerDisplay.textContent = `Time left: ${timer}`;
     button.style.display = "none";
     options.style.display = "flex";
     var countdownTimer = setInterval(function () {
         timer--;
-        if (timer > 1) {
-            title.textContent = `You have ${timer} seconds left.`;
-        }
-        if (timer == 1) {
-            title.textContent = `You have ${timer} second left!`;
+        if (timer > 0) {
+            timerDisplay.textContent = `Time left: ${timer}`;
         }
         if (timer <= 0) {
             clearInterval(countdownTimer);
-            title.textContent = "Time's up!"
+            timerDisplay.textContent = "Time's up!"
         }
-        if (currentQuestion == 5) {
+        if (currentQuestion >= 5) {
             clearInterval(countdownTimer);
         }
     }, 1000);
@@ -113,13 +111,16 @@ buttons.forEach(button => {
         if (button.value != quizQuestions[currentQuestion - 1].answer) {
             timer -= 5;
         }
+        if (currentQuestion == 5) {
+            timerDisplay.textContent = "End of quiz.";
+        }
         showQuestionText();
     })
 });
 
 var currentQuestion = 0;
 var enterInitials = document.getElementById("initials");
-var btnlbl = document.getElementById("strtlbl")
+var subbtn = document.getElementById("submitScore");
 
 /* CYCLE QUESTIONS */
 function showQuestionText() {
@@ -128,12 +129,12 @@ function showQuestionText() {
         if (currentQuestion == 5) {
             options.style.display = "none";
             yourScore = timer;
-            question.textContent = `You finished with ${yourScore} seconds left!`;
+            title.textContent = `Your score is ${yourScore}!`;
+            question.textContent = `Submit your name to save it to the leaderboard.`;
             enterInitials.style.display = "block";
-            button.style.display = "block";
-            btnlbl.textContent = "SUBMIT";
+            subbtn.style.display = "block";
+            // btnlbl.textContent = "SUBMIT";
             quote.textContent = quotes[10];
-            title.textContent = "End of quiz."
             clearInterval(countdownTimer);
             return;
         }
@@ -144,8 +145,20 @@ function showQuestionText() {
     }
     currentQuestion += 1;
 };
-quote.textContent = quotes[randomNumber()];
 
+var yourName = document.getElementById('initials');
+
+subbtn.addEventListener('click', function (event) {
+    event.preventDefault();
+    saveScore();
+});
+
+function saveScore(event) {
+    var storeName = yourName.value;
+localStorage.setItem(storeName, yourScore);
+};
+
+quote.textContent = quotes[randomNumber()];
 
 function randomNumber() {
     return Math.floor(Math.random() * 15);
