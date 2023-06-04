@@ -13,11 +13,11 @@
 <body>
     <main>
         <header>
-            <a href="#">High Scores</a>
+            <a href="#" id="leaderboard">High Scores</a>
             <h1 id="title">JavaScript Quiz</h1>
             <p id="timer">Timer: 30</p>
         </header>
-        <form>
+        <form id="dyntbl">
             <legend id="question">
                 Try to answer the following questions within 30 seconds. There is a 5 second penalty for an incorrect
                 answer. Press the START button to begin. Good luck!
@@ -43,6 +43,9 @@
                 </button>
                 <button id="submitScore">
                     <label>SUBMIT</label>
+                </button>
+                <button id="back">
+                    <label>BACK</label>
                 </button>
             </div>
         </form>

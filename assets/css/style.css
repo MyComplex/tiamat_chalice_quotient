@@ -34,7 +34,8 @@ header {
     width: 100%;
     border-radius: 15px 15px 0px 0px;
 }
-header a{
+
+header a {
     display: flex;
     justify-content: center;
     color: white;
@@ -94,6 +95,12 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#back {
+    display: none;
+    background-color: blueviolet;
+    color: white;
 }
 
 #initials {
