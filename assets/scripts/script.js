@@ -171,6 +171,13 @@ function randomNumber() {
 
 /* HANDLE HIGH SCORES */
 const headers = ["Player", "Score", "Rank"];
+var preScores = [
+    {
+        player : "Jesus",
+        score : 15
+    }
+];
+const imOnTop = localStorage.setItem("quizScores",JSON.stringify( preScores));
 const playerScores = JSON.parse(localStorage.getItem("quizScores"));
 
 let showTopScores = document.getElementById('leaderboard');
