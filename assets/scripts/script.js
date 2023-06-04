@@ -86,7 +86,7 @@ button.addEventListener("click", function (event) {
     timerDisplay.textContent = `Time left: ${timer}`;
     button.style.display = "none";
     options.style.display = "flex";
-    var countdownTimer = setInterval(function () {
+    countdownTimer = setInterval(function () {
         timer--;
         if (timer > 0) {
             timerDisplay.textContent = `Time left: ${timer}`;
