@@ -10,7 +10,7 @@
 Build a timeed quiz that tests your JavaScript knowledge, applies a time penalty for a wrong answer, and records your score in a leaderboard.
 
 ## Sample
-![sample](./sample.gif)
+![sample](./assets/images/sample.gif)
 
 ## Live Website
 Browse to https://mycomplex.github.io/tiamat_chalice_quotient/ to review.
